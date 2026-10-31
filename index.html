@@ -168,6 +168,24 @@
         <p>Designed & Built by Yash Solanki</p>
         <p class="footer-year">© 2026</p>
     </footer>
+<!-- Add this just before the closing </body> tag -->
+    <script>
+        // Select elements you want to animate
+        const elementsToAnimate = document.querySelectorAll('.hero-text, .image-frame, .section-header, .about-content, .project-card, .skills-container, .contact-box');
+        
+        // Add the hidden state class to them initially
+        elementsToAnimate.forEach(el => el.classList.add('reveal'));
 
+        // Trigger animation when they appear on screen
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        elementsToAnimate.forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
